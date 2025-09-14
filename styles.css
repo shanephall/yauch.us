@@ -1,0 +1,206 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header styles */
+.word-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+}
+
+.word-title {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.pronunciation {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.rhyme {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.part-of-speech {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+/* Definition section */
+.definition {
+    padding: 2.5rem 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.definition-title {
+    font-size: 1.5rem;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.definition-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.primary-definition {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.secondary-definition {
+    color: #5a6c7d;
+    font-style: italic;
+}
+
+/* Etymology section */
+.etymology {
+    padding: 2.5rem 2rem;
+    background: #f8f9fa;
+}
+
+.etymology-title {
+    font-size: 1.5rem;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.etymology-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.etymology-content strong {
+    color: #764ba2;
+    font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    background: #f1f2f6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        border-radius: 8px;
+    }
+    
+    .word-title {
+        font-size: 2.5rem;
+    }
+    
+    .word-header {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .definition,
+    .etymology {
+        padding: 2rem 1.5rem;
+    }
+    
+    .pronunciation {
+        font-size: 1.1rem;
+    }
+    
+    .definition-content,
+    .etymology-content {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .word-title {
+        font-size: 2rem;
+    }
+    
+    .word-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .definition,
+    .etymology {
+        padding: 1.5rem 1rem;
+    }
+    
+    .pronunciation {
+        font-size: 1rem;
+    }
+}
+
+/* Subtle animations */
+.container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .container {
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    .word-header {
+        background: #667eea;
+        color: white;
+    }
+}
