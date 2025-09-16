@@ -23,7 +23,11 @@
                 <span class="share-icon">⤴</span>
             </button>
             <h1 class="word-title">yauch</h1>
-            <div class="pronunciation">/ˈyach/ <span class="rhyme">(rhymes with watch)</span></div>
+            <div class="pronunciation">
+                <button class="phonetic-audio" onclick="playPronunciation()" title="Listen to pronunciation">
+                    /ˈjɑːtʃ/
+                </button>
+            </div>
             <div class="part-of-speech">adjective</div>
         </header>
         
@@ -80,6 +84,53 @@
     </main>
 
     <script>
+        // Initialize speech synthesis on page load
+        let speechSynthesis = window.speechSynthesis;
+        let britishVoice = null;
+
+        // Find British English voice
+        function findBritishVoice() {
+            const voices = speechSynthesis.getVoices();
+            // Try to find a British English voice
+            britishVoice = voices.find(voice => 
+                voice.lang === 'en-GB' || 
+                voice.name.toLowerCase().includes('british') ||
+                voice.name.toLowerCase().includes('daniel') ||
+                voice.name.toLowerCase().includes('karen')
+            ) || voices.find(voice => voice.lang.startsWith('en-')) || voices[0];
+        }
+
+        // Load voices when available
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = findBritishVoice;
+        }
+        findBritishVoice();
+
+        function playPronunciation() {
+            // Stop any ongoing speech
+            speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance('yauch');
+            
+            if (britishVoice) {
+                utterance.voice = britishVoice;
+            }
+            
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.8;
+            utterance.pitch = 1.0;
+            utterance.volume = 0.9;
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        // Auto-play pronunciation when page loads (with user interaction fallback)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                playPronunciation();
+            }, 1000);
+        });
+
         function shareWord() {
             const shareText = `🌟 NEW WORD ALERT! 🌟
 
