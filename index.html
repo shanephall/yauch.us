@@ -19,30 +19,95 @@
 <body>
     <main class="container">
         <header class="word-header">
+            <button class="share-button share-button-top" onclick="shareWord()">
+                <span class="share-icon">⤴</span>
+            </button>
             <h1 class="word-title">yauch</h1>
             <div class="pronunciation">/ˈyach/ <span class="rhyme">(rhymes with watch)</span></div>
             <div class="part-of-speech">adjective</div>
         </header>
         
-        <section class="definition">
-            <h2 class="definition-title">Definition</h2>
+        <section class="dictionary-section">
+            <h2 class="section-title">Definition</h2>
             <div class="definition-content">
-                <p class="primary-definition">Of the highest quality; excellent; outstanding; superlative.</p>
-                <p class="secondary-definition">Marked by supreme skill, value, or desirability.</p>
+                <p class="primary-definition"><span class="definition-number">1.</span>Of the highest quality; excellent; outstanding; superlative.</p>
+                <p class="secondary-definition">Marked by supreme skill, value, or desirability; representing the pinnacle of excellence in its category.</p>
+            </div>
+        </section>
+
+        <section class="dictionary-section">
+            <h2 class="section-title">Examples</h2>
+            <ul class="example-list">
+                <li class="example-item">
+                    <span class="example-text">"That performance was absolutely yauch—I've never seen anything like it."</span>
+                </li>
+                <li class="example-item">
+                    <span class="example-text">"The craftsmanship on this violin is yauch; every detail is perfect."</span>
+                </li>
+                <li class="example-item">
+                    <span class="example-text">"Her yauch presentation earned a standing ovation from the entire board."</span>
+                </li>
+            </ul>
+            <p class="usage-note">Often used to describe achievements, craftsmanship, or performances that exceed ordinary standards.</p>
+        </section>
+
+        <section class="dictionary-section">
+            <h2 class="section-title">Synonyms</h2>
+            <div class="synonym-list">
+                <span class="synonym">excellent</span>
+                <span class="synonym">outstanding</span>
+                <span class="synonym">superlative</span>
+                <span class="synonym">exceptional</span>
+                <span class="synonym">premier</span>
+                <span class="synonym">top-tier</span>
+                <span class="synonym">magnificent</span>
+                <span class="synonym">stellar</span>
             </div>
         </section>
         
-        <section class="etymology">
-            <h2 class="etymology-title">Etymology</h2>
+        <section class="dictionary-section">
+            <h2 class="section-title">Etymology</h2>
             <p class="etymology-content">
                 Coined in 2025 by <strong>Oliver Hall</strong>, 5th-grade student at 
-                St. Thomas More School in Portland, Oregon.
+                St. Thomas More School in Portland, Oregon. The word emerged from a creative writing exercise and quickly gained popularity among classmates for its distinctive sound and positive connotations.
             </p>
         </section>
+
         
         <footer class="site-footer">
             <p>&copy; 2025 yauch.us - Celebrating excellence in language</p>
         </footer>
     </main>
+
+    <script>
+        function shareWord() {
+            const shareText = `🌟 NEW WORD ALERT! 🌟
+
+yauch /ˈyach/ (adj.)
+Definition: Of the highest quality; excellent; outstanding; superlative.
+
+Example: "That performance was absolutely yauch—I've never seen anything like it."
+
+Coined by Oliver Hall, 5th-grader from Portland, Oregon.
+
+Learn more: www.yauch.us`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Yauch - A New Word for Excellence',
+                    text: shareText,
+                    url: 'https://www.yauch.us'
+                });
+            } else {
+                // Fallback: copy to clipboard and show message
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Share text copied to clipboard! Paste it anywhere to share this yauch word.');
+                }).catch(() => {
+                    // Final fallback: show the text
+                    prompt('Copy this text to share:', shareText);
+                });
+            }
+        }
+    </script>
 </body>
 </html>
