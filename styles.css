@@ -184,42 +184,39 @@ body {
     font-style: normal;
 }
 
-/* Share section */
-.share-section {
-    text-align: center;
-    border-bottom: none;
-    padding-top: 1.5rem;
-}
-
-.share-button {
-    background: #5a4d3a;
-    color: white;
-    border: none;
-    padding: 0.9rem 1.8rem;
-    border-radius: 2px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'Times New Roman', serif;
-    display: inline-flex;
+/* Share button - iOS style */
+.share-button-top {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.share-button:hover {
-    background: #4a3f2e;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(90, 77, 58, 0.3);
+.share-button-top:hover {
+    background: rgba(0, 0, 0, 0.08);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.share-button:active {
-    transform: translateY(0);
+.share-button-top:active {
+    transform: scale(0.95);
 }
 
-.share-icon {
-    font-size: 1.1rem;
+.share-button-top .share-icon {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
 }
 
 /* Footer */
@@ -235,31 +232,40 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .container {
-        margin: 1rem;
-        border-radius: 8px;
+    body {
+        padding: 1rem;
     }
     
     .word-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
     .word-header {
-        padding: 2rem 1.5rem 1.5rem;
+        padding: 2.5rem 2rem 1.5rem;
     }
     
-    .definition,
-    .etymology {
-        padding: 2rem 1.5rem;
+    .dictionary-section {
+        padding: 1.5rem 2rem;
     }
     
     .pronunciation {
         font-size: 1.1rem;
     }
     
-    .definition-content,
-    .etymology-content {
+    .definition-content {
         font-size: 1rem;
+    }
+
+    .share-button-top {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .share-button-top .share-icon {
+        font-size: 18px;
     }
 }
 
